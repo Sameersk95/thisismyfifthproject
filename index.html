@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>V-Guard Responsive Page</title>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+
+    /* HEADER TOP */
+    .head1 {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px dotted rgb(157, 143, 143);
+      background-color: #000;
+      padding: 5px 20px;
+    }
+    .subhead1 ul,
+    .subhead2 ul {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .subhead1 li,
+    .subhead2 li {
+      margin-left: 25px;
+    }
+
+    .subhead1 a {
+      color: #f39200;
+      text-decoration: none;
+      font-size: 16px;
+    }
+    .subhead1 a:hover {
+      color: white;
+    }
+
+    .searchbox {
+      margin-left: 20px;
+      border-radius: 20px;
+      border: 1px solid #f39200;
+      background: #111;
+      color: white;
+      padding: 5px 10px;
+    }
+    .btn1 {
+      margin-left: 10px;
+      border-radius: 5px;
+      height: 32px;
+      border: 2px solid #f39200;
+      background-color: #333;
+      color: #f39200;
+      cursor: pointer;
+    }
+    .btn1:hover {
+      background-color: #f39200;
+      color: #000;
+    }
+
+    .subhead2 li {
+      color: #f39200;
+      font-size: 22px;
+      cursor: pointer;
+    }
+    .subhead2 li:hover {
+      color: white;
+    }
+
+    /* MAIN NAV */
+    .head2 {
+      background-color: #000;
+      border-bottom: 1px solid #222;
+    }
+    .ul2 {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      list-style: none;
+      padding: 10px 20px;
+      margin: 0;
+    }
+    .ul2 li {
+      position: relative;
+    }
+    .ul2 a {
+      color: #f39200;
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: bold;
+    }
+    .ul2 a:hover {
+      color: white;
+    }
+
+    .logo1 {
+      height: 60px;
+    }
+
+    /* SUBMENU */
+    .submenu,
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #111;
+      border-radius: 5px;
+      min-width: 160px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      z-index: 999;
+    }
+    .submenu a,
+    .dropdown-content a {
+      display: block;
+      padding: 10px 16px;
+      color: white;
+      text-decoration: none;
+      text-align: left;
+    }
+    .submenu a:hover,
+    .dropdown-content a:hover {
+      background-color: #f39200;
+      color: black;
+    }
+
+    .ul2 li:hover .submenu,
+    .drop-down:hover .dropdown-content {
+      display: block;
+    }
+
+    /* HERO SECTION */
+    .body {
+      background-image: url('vguardimg.webp');
+      background-size: cover;
+      background-position: center;
+      height: 400px;
+    }
+
+    /* FOOTER SECTION */
+    .foot1 {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: #000;
+    }
+    .footsub {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 30px;
+      gap: 30px;
+    }
+    .footsub1 {
+      background: #111;
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 20px;
+      width: 350px;
+      max-width: 90%;
+    }
+    .footimg {
+      height: 180px;
+      width: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .footsub1 h2 {
+      color: #f39200;
+    }
+
+    /* FOOTER 2 */
+    .foot2 {
+      text-align: center;
+      background-color: #000;
+      padding: 40px 20px;
+    }
+    .footmenu2 {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
+    }
+    .footmenupart-3,
+    .footmenu5 {
+      border: 1px solid #555;
+      border-radius: 10px;
+      padding: 20px;
+      width: 350px;
+      max-width: 90%;
+      background: #111;
+    }
+    .btn2 {
+      color: #f39200;
+      background-color: #333;
+      border-radius: 7px;
+      font-weight: bold;
+      border: 1px solid yellow;
+      padding: 8px 14px;
+      cursor: pointer;
+    }
+    .btn2:hover {
+      background-color: #f39200;
+      color: #000;
+    }
+
+    .footsubmenu1 {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+    .footsubmenu2, .footsubmenu3 {
+      flex: 1 1 45%;
+      text-align: left;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 992px) {
+      .head1 {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .ul2 {
+        flex-direction: column;
+      }
+      .ul2 li {
+        margin: 8px 0;
+      }
+      .submenu, .dropdown-content {
+        position: static;
+      }
+      .body {
+        height: 250px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .subhead1 ul, .subhead2 ul {
+        flex-direction: column;
+        align-items: center;
+      }
+      .ul2 a {
+        font-size: 15px;
+      }
+      .footimg {
+        height: 140px;
+        width: 140px;
+      }
+      .footsub1 {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <div class="head1">
+    <div class="subhead1">
+      <ul>
+        <li><a href="#">BRAND PHILOSOPHY</a></li>
+        <li><a href="#">CONTACT US</a></li>
+        <li><a href="#">INVESTOR RELATION</a></li>
+        <li><a href="#">CAREERS</a></li>
+        <input class="searchbox" type="text" placeholder="Search...">
+        <button class="btn1"><i class='bx bx-store'></i> Click Me</button>
+      </ul>
+    </div>
+    <div class="subhead2">
+      <ul>
+        <li><i class='bx bxl-instagram'></i></li>
+        <li><i class='bx bxl-facebook-circle'></i></li>
+        <li><i class='bx bxl-whatsapp'></i></li>
+        <li><i class='bx bxl-twitter'></i></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- MAIN NAV -->
+  <div class="head2">
+    <ul class="ul2">
+      <li><img class="logo1" src="vguard-logo.jpg" alt="V-Guard Logo"></li>
+      <li><a href="#">About V-Guard</a>
+        <ul class="submenu">
+          <li><a href="#">Our Vision</a></li>
+          <li><a href="#">Leadership</a></li>
+          <li><a href="#">Milestones</a></li>
+          <li><a href="#">Legacy</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Products</a></li>
+      <li><a href="#">Dealers & Service</a></li>
+      <li class="drop-down"><a href="#">CSR</a>
+        <div class="dropdown-content">
+          <a href="#">Education</a>
+          <a href="#">Environment</a>
+          <a href="#">Community</a>
+        </div>
+      </li>
+      <li><a href="#">Customer Service</a></li>
+    </ul>
+  </div>
+
+  <!-- HERO -->
+  <div class="body"></div>
+
+  <!-- FOOTER 1 -->
+  <div class="foot1">
+    <h1>V-Guard Story</h1>
+    <hr style="width:60%;border:1px solid #f39200;">
+    <div class="footsub">
+      <div class="footsub1">
+        <img class="footimg" src="img_girl.jpg" alt="Legacy">
+        <h2>Our Legacy</h2>
+        <p>
+          Founded in 1977 by Mr. Kochouseph Chittilappilly, V-Guard began its journey with a mission to create a robust brand in the Indian electronics and electricals landscape.
+        </p>
+      </div>
+      <div class="footsub1">
+        <img class="footimg" src="img_girl.jpg" alt="Innovation">
+        <h2>Our Innovation</h2>
+        <p>
+          V-Guard continues to innovate, providing energy-efficient, reliable products that enhance modern living and build a sustainable future.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER 2 -->
+  <div class="foot2">
+    <h2 style="color: #f39200;">V-Guard Connect</h2>
+    <hr style="width: 60%; border: 1px solid #f39200;">
+    <div class="footmenu2">
+      <div class="footmenupart-3">
+        <h3>Vendor Portal</h3>
+        <p>Manage relationships and register as a new vendor through our online portal.</p>
+        <button class="btn2">View Portal</button>
+      </div>
+      <div class="footmenu5">
+        <h3>V-Guard Support</h3>
+        <p>Any queries? We’re here for you!</p>
+        <div class="footsubmenu1">
+          <div class="footsubmenu2">
+            <h4>Call Center</h4>
+            <p>9555953082</p>
+            <p>9129098121</p>
+            <h4>Email</h4>
+            <p>support@vguard.com</p>
+          </div>
+          <div class="footsubmenu3">
+            <h4>Timings</h4>
+            <p>Mon–Sat: 9 AM – 7 PM</p>
+            <p>Sunday: 9 AM – 6 PM</p>
+            <h4>WhatsApp Support</h4>
+            <p>9555953082</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
